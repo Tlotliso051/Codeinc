@@ -94,6 +94,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = 'xyzxyz xyzxyz xyzxyz'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password123@database-my-db-1:5432/mydatabase'
     # app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
 
     with app.app_context():

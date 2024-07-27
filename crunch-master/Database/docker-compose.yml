@@ -1,0 +1,25 @@
+version: "3.8" 
+
+services:
+
+  my-db:
+    image: postgres  
+    environment:
+      - POSTGRES_USER=user  
+      - POSTGRES_PASSWORD=password123
+    ports:
+      - "5432:5432"  
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  
+
+  
+  adminer:
+    image: adminer  
+    restart: unless-stopped  
+    ports:
+      - "8080:8080"  
+    depends_on:
+      - my-db  
+
+volumes:
+  postgres_data:  

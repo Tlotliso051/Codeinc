@@ -1,31 +1,36 @@
-# Import the required module for text 
-# to speech conversion
-from gtts import gTTS
-
-# Import pygame for playing the converted audio
+import time
 import pygame
+from gtts import gTTS
+import uuid
 
-# The text that you want to convert to audio
-mytext = 'Welcome to geeksforgeeks!'
 
-# Language in which you want to convert
-language = 'en'
+def convert_text_to_audio(text):
+    # The text that you want to convert to audio
+    file_name = str(uuid.uuid4())
+    mytext = f"{text}"
 
-# Passing the text and language to the engine, 
-# here we have marked slow=False. Which tells 
-# the module that the converted audio should 
-# have a high speed
-myobj = gTTS(text=mytext, lang=language, slow=False)
+    # Language in which you want to convert
+    language = 'en'
 
-# Saving the converted audio in a mp3 file named
-# welcome 
-myobj.save("welcome.mp3")
+    # Passing the text and language to the engine
+    myobj = gTTS(text=mytext, lang=language, slow=False)
 
-# Initialize the mixer module
-pygame.mixer.init()
+    # Saving the converted audio in an mp3 file
+    myobj.save(f"recordings/{file_name}.mp3")
 
-# Load the mp3 file
-pygame.mixer.music.load("welcome.mp3")
+    # Initialize the mixer module
+    pygame.mixer.init()
 
-# Play the loaded mp3 file
-pygame.mixer.music.play()
+    # Load the mp3 file
+    pygame.mixer.music.load(f"recordings/{file_name}.mp3")
+
+    # Play the loaded mp3 file
+    pygame.mixer.music.play()
+
+    # Wait for the audio to finish playing
+    while pygame.mixer.music.get_busy(): 
+        time.sleep(1)
+
+    return pygame.mixer.music.load(f"recordings/{file_name}.mp3")
+
+convert_text_to_audio("hi there can you hear me. if you know you know")

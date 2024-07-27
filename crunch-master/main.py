@@ -41,7 +41,7 @@ def sendimage(data):
 
 @socketio.on('message')
 def handle_message(data):
-    print(data)
+    print(data , "print1")
     if session.get("USERNAME") is None:
         username = current_user.name
     else:
