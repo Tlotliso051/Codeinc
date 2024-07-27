@@ -495,3 +495,15 @@ box-shadow: inset 5px 5px 10px #1e1e1e,
     letter-spacing: 1px;
     cursor: pointer;
 }
+
+.send-button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
