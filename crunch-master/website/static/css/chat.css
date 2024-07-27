@@ -507,3 +507,40 @@ box-shadow: inset 5px 5px 10px #1e1e1e,
     transition: background 0.3s, box-shadow 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
+/* ------ record btn ------ */
+
+#record-button, #stop-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+#record-button:hover, #stop-button:hover {
+    background-color: #0056b3;
+}
+
+#stop-button {
+    background-color: #dc3545;
+    /* display: none; Initially hidden */
+}
+
+#stop-button:hover {
+    background-color: #c82333;
+}
+
+#audio-playback {
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
